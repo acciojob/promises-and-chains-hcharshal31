@@ -1,13 +1,16 @@
 //your JS code here. If required.
-let age = parseInt(document.getElementById('age').value, 10);
-let name = document.getElementById("name").value.trim();
 
-if(!name || isNaN(age)){
-	alert("inputs cannot be empty.")
-}
-
-document.getElementById("myForm").addEventListener(submit, (event)=>{
+document.getElementById("myForm").addEventListener("submit", (event)=>{
 	event.preventDefault();
+	let age = parseInt(document.getElementById('age').value, 10);
+	let name = document.getElementById("name").value.trim();
+
+	if(name ==="" || age == null){
+		alert("inputs cannot be empty.");
+		return;
+	}
+
+	
 let promise1 = new Promise((resolve, reject)=>{
 	if(age > 18){
 		setTimeout(()=>{
@@ -19,9 +22,9 @@ let promise1 = new Promise((resolve, reject)=>{
 });
 
 promise1.then((data)=>{
-	alert(date)
-}).catch(err){
+	alert(data)
+}).catch((err)=>{
 	alert(err);
-}
+})
 
 });
